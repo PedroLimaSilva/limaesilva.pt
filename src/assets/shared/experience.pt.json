@@ -1,0 +1,65 @@
+[
+  {
+    "thumbnail": "assets/img/primeit.png",
+    "type": "work",
+    "title": "Frontend Web Developer",
+    "start": "07/2017",
+    "end": "Presente",
+    "short": "",
+    "description": ""
+  },
+  {
+    "thumbnail": "assets/img/hi-interactive.png",
+    "type": "work",
+    "title": "Frontend Web Developer",
+    "start": "02/2017",
+    "end": "06/2017",
+    "short": "",
+    "description": ""
+  },
+  {
+    "thumbnail": "assets/img/collab.png",
+    "type": "work",
+    "title": "Estágio Angular2",
+    "start": "03/2016",
+    "end": "08/2016",
+    "short": "Estagiei durante 5 meses na Collab",
+    "description": "Abrangido pelo Programa de Introdução à Prática Profissional de Engenharia Informática, estagiei na Collab, empresa da Novabase especialista em Software para Call Centers, a desenvolver o <i>front-end</i> de um portal de gestão de licenças para clientes e funcionários."
+  },
+  {
+    "thumbnail": "assets/img/aefct.jpg",
+    "type": "extra",
+    "title": "Coordenador da Área de Imagem e Comunicação",
+    "start": "01/2016",
+    "end": "12/2016",
+    "short": "",
+    "description": "<p class='indent'>Desempenhei o cargo de Coordenador da Área de Imagem e Comunicação da Associação dos Estudantes da Faculdade de Ciências e Tecnologia.</p><p class='indent'>Para além das responsabilidades exercidas no ano passado, giro uma equipa de dois colaboradores e um vogal e entro em contacto com fornecedores.</p>"
+  },
+  {
+    "thumbnail": "assets/img/aefct.jpg",
+    "type": "extra",
+    "title": "Vogal da Área de Imagem e Comunicação",
+    "start": "01/2015",
+    "end": "12/2015",
+    "short": "",
+    "description": "<p class='indent'>Por já ter experiência em programas de manipulação de imagem, fui recrutado para a Direção da Associação dos Estudantes da FCT onde foi da minha responsabilidade o design de materiais de divulgação e logistística para eventos da Associação.</p><p class='indent'>Tive que desenvolver competências em Phototoshop, Illustrator, Cinema4D e, eventualmente, tecnologias web.</p>"
+  },
+  {
+    "thumbnail": "assets/img/miei.png",
+    "type": "academic",
+    "title": "Engenharia Informática",
+    "start": "03/2015",
+    "end": "Presente",
+    "short": "Mudei para Engenharia Informática na FCT NOVA",
+    "description": "Depois do primeiro contacto com programação em Engenharia Física, apercebi-me que me enquadraria melhor neste curso."
+  },
+  {
+    "thumbnail": "assets/img/mief.jpg",
+    "type": "academic",
+    "title": "Engenharia Física",
+    "start": "09/2012",
+    "end": "12/2014",
+    "short": "Frequentei Engenharia Física na FCT NOVA",
+    "description": "Por ter noção de que queria seguir uma profissão relacionada com Ciência, mas sem ter certezas, escolhi um curso mais abrangente que acabou por me alargar o horizonte para a informática."
+  }
+]

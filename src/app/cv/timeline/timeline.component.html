@@ -1,0 +1,23 @@
+<div id="timeline" class="timeline-paralax" style="height:auto">
+  <div id="experience" class="section no-pad-bot scrollspy">
+    <div class="container">
+
+      <h3 class="white-text">| Experiência</h3>
+      <div class="timeline">
+
+        <div class="timeline-event" *ngFor="let event of events; let i = index">
+          <div id="timeline_{{i+1}}" class="timeline-content"
+              [ngClass]="{
+                'slide-left': i%2===0,
+                'slide-right': i%2===1
+              }">
+            <timeline-event [event]="event"></timeline-event>
+          </div>
+          <timeline-badge [timestamp]="event.start" [type]="event.type"></timeline-badge>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--<div class="parallax" style="z-index:-2;"><img class="blur" src="assets/img/hexes.jpg" alt="Unsplashed background img 1"></div>-->
+</div>

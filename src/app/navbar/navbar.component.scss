@@ -1,0 +1,10 @@
+@import '../../styles/components/variables.scss';
+
+nav {
+  ul a, .brand-logo {
+    color: $color5;
+  }
+  ul#nav-mobile a {
+    color: $color4;
+  }
+}

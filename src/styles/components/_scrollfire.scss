@@ -1,0 +1,33 @@
+.slide-left{
+  opacity: 0;
+  transform: translateX(-200px);
+  -webkit-transition: all .5s ease-in-out !important;
+  transition: all .5s ease-in-out !important;
+}
+.slide-right{
+  opacity: 0;
+  transform: translateX(200px);
+  -webkit-transition: all .5s ease-in-out !important;
+  transition: all .5s ease-in-out !important;
+}
+
+.slided{
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.profile-section{
+  perspective: 1000px;
+}
+
+.profile-card{
+  opacity: 0;
+  transform: rotateX(-90deg) translateY(500px);
+  transition: all .5s ease-in-out;
+}
+
+.profile-card.rotated{
+  opacity: 1;
+  transform: rotateX(0) translateY(0);
+}

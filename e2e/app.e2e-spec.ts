@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { CVangularPage } from './app.po';
 
-describe('limaesilva App', () => {
-  let page: AppPage;
+describe('cvangular App', () => {
+  let page: CVangularPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new CVangularPage();
   });
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 });

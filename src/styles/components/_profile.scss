@@ -1,0 +1,61 @@
+.head-bg {
+    height: 500px;
+    top: $navbar-height-mobile;
+    left: 0;
+    right: 0;
+    z-index: -99;
+    display: block;
+    position: absolute;
+    background-size: cover;
+    background-color: $secondary-color;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@media #{$medium-and-up}{
+  .head-bg{
+    top: $navbar-height;
+  }
+}
+
+.profile-card{
+    background-color: white;
+    border-radius: 2px;
+    margin-top: 150px;
+    @media (max-width: 767px){
+      margin-top: 10px;
+    }
+}
+
+.row.profile-body{
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 1.5em;
+    margin-bottom: 0;
+}
+
+.profile-header{
+    border-left: 3px solid black;
+    padding-left: 10px;
+}
+
+.interest{
+    margin: 0 10px 10px 10px;
+}
+
+.profile-list .title{
+  float: left;
+  display: block;
+}
+.profile-list .cont{
+  color: grey;
+  display: block;
+  margin-left: 120px;
+}
+@media (max-width: 767px){
+  .profile-list .title, .profile-list .cont {
+      width: 100%;
+      float: none;
+      line-height: 1.2;
+      margin-left: 0;
+  }
+}

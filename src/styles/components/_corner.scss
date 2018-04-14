@@ -1,0 +1,131 @@
+#corner{
+    display: block;
+    position: fixed;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    bottom: -50%;
+    left: 150%;
+    width: 100%;
+    transition: all 1s ease-in-out 1s;
+}
+#corner.loaded{
+    left: 50%;
+    bottom: -10px;
+}
+#corner1{
+    height: 100px;
+    width: 100%;
+    background-color: $color1;
+    box-shadow:
+        0 -2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 -1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 -3px 1px -2px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease-in-out 1.3s;
+}
+#corner2{
+    height: 0px;
+    width: 100%;
+    background-color: $color3;
+    box-shadow:
+        0 -2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 -1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 -3px 1px -2px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease-in-out 1.3s;
+}
+#corner3{
+    height: 0px;
+    width: 100%;
+    background-color: $color2;
+    box-shadow:
+        0 -16px 24px 2px rgba(0, 0, 0, 0.14),
+        0 -6px 30px 5px rgba(0, 0, 0, 0.12),
+        0 -8px 10px -5px rgba(0, 0, 0, 0.3);
+    transition: all 1s ease-in-out 1.3s;
+}
+#corner2.loaded,#corner3.loaded{
+    height:20px;
+}
+
+
+#splash1{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    height: 100%;
+    z-index: 990;
+    background-color: $color1;
+    box-shadow:
+        0 -2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 -1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 -3px 1px -2px rgba(0, 0, 0, 0.2);
+    width: 150%;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    @media #{$small-and-down} {
+        top: 60%;
+        left: 60%;
+    }
+    @media #{$medium-and-up} {
+        top: 60%;
+        left: 30%;
+    }
+
+    transition: all 1s ease-in-out .3s;
+}
+#splash1.loaded{
+    top:150%;
+    left: 150%;
+}
+
+#splash2{
+    display: block;
+    position: fixed;
+    width: 150%;
+    bottom: 0;
+    z-index: 989;
+    background-color: $color3;
+    box-shadow:
+        0 -2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 -1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 -3px 1px -2px rgba(0, 0, 0, 0.2);
+    height: 150%;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    @media #{$medium-and-up} {
+        top: 30%;
+        right: 10%;
+    }
+    @media #{$small-and-down} {
+        top: 30%;
+        right: 100%;
+    }
+    -webkit-transition: all 1s ease-in-out .3s;
+    transition: all 1s ease-in-out .3s;
+}
+#splash2.loaded{
+    top: 150%;
+    right: 150%;
+}
+#splash3{
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    z-index: 988;
+    background-color: $color2;
+    box-shadow:
+        0 -16px 24px 2px rgba(0, 0, 0, 0.14),
+        0 -6px 30px 5px rgba(0, 0, 0, 0.12),
+        0 -8px 10px -5px rgba(0, 0, 0, 0.3);
+    -webkit-transition: all .7s ease-in-out;
+    transition: all .7s ease-in-out;
+    top:0%;
+}
+#splash3.loaded{
+    top:150%;
+}
+

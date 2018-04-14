@@ -1,0 +1,15 @@
+<div class="timeline-badge white-text"
+    [ngClass]="{
+      'red': type==='work',
+      'green': type==='extra',
+      'blue': type==='academic'
+    }">
+  <i
+    [ngClass]="{
+      'fa fa-graduation-cap': type === 'extra' || type === 'academic',
+      'mdi mdi-briefcase': type === 'work'
+    }" aria-hidden="true"></i>
+  <div class="card timestamp">
+    <p class="text-center">{{timestamp}}</p>
+  </div>
+</div>
