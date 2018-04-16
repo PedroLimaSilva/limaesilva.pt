@@ -13,7 +13,7 @@ export class AppComponent {
     constructor(
         private _stats: StatsService
     ){
-        if(environment.performanceDebug){
+        if(environment['performanceDebug']){
             _stats.addStats();
         }
     }

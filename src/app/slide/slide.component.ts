@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Scene, PerspectiveCamera, Renderer, Mesh } from 'three';
 import { Renderer3Service } from '../renderer3.service';
 import { GuiService } from '../gui.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-slide',
@@ -31,6 +32,9 @@ export class SlideComponent implements OnInit {
         this._gui.addElement(this, 'message');
         this._gui.addElement(this, 'floorColor');
         this._gui.addElement(this, 'subjectColor');
+        if(environment['performanceDebug']){
+            this.setupGui();
+        }
     }
 
     getSubject(){
@@ -38,5 +42,12 @@ export class SlideComponent implements OnInit {
         let material = new THREE.MeshLambertMaterial({ color: this.subjectColor });
         let cube = new THREE.Mesh(geometry, material);
         return cube;
+    }
+
+    setupGui(){
+        this._gui.clearItems();
+        this._gui.addElement(this, 'message');
+        this._gui.addElement(this, 'floorColor');
+        this._gui.addElement(this, 'subjectColor');
     }
 }

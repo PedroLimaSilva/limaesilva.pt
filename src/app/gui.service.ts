@@ -12,10 +12,14 @@ export class GuiService {
     }
 
     public clearItems(){
+        /*
         this.gui = new dat.GUI({name: 'Debug variables'});
+        */
     }
 
     public addElement(obj: Object, propName: string){
+        /*
         this.gui.add(obj, propName);
+        */
     }
 }
