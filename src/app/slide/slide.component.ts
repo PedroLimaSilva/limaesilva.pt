@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
 export class SlideComponent implements OnInit {
 
     public message = 'hello';
-    public floorColor = '#e0dacd';
+    public bgColor = '#e0dacd';
     public subjectColor = '#0099ff';
 
     constructor(
@@ -25,22 +25,18 @@ export class SlideComponent implements OnInit {
         this._renderer.init(
             this.element.nativeElement,
             this.getSubject(),
-            new THREE.Color(this.floorColor),
-            new THREE.Color(this.floorColor)
+            new THREE.Color(this.bgColor)
         );
-        this._gui.clearItems();
-        this._gui.addElement(this, 'message');
-        this._gui.addElement(this, 'floorColor');
-        this._gui.addElement(this, 'subjectColor');
         if(environment['performanceDebug']){
             this.setupGui();
         }
     }
 
     getSubject(){
-        let geometry = new THREE.BoxGeometry(1, 1, 1);
+        let geometry = new THREE.BoxBufferGeometry(1.5, 1.5, 1.5);
         let material = new THREE.MeshLambertMaterial({ color: this.subjectColor });
         let cube = new THREE.Mesh(geometry, material);
+        cube.castShadow = true;
         return cube;
     }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Scene, PerspectiveCamera, Renderer, Mesh, Color } from 'three';
+import { Scene, PerspectiveCamera, Mesh, Color, WebGLRenderer } from 'three';
 import { StatsService } from './stats.service';
 
 @Injectable()
@@ -7,33 +7,40 @@ export class Renderer3Service {
 
     public scene: Scene;
     public camera: PerspectiveCamera;
-    renderer: Renderer;
+    renderer: WebGLRenderer;
     public subject: Mesh;
-    public floor: Color
 
     constructor(
         private stats: StatsService
     ) { }
 
-    public init(container: HTMLElement, subject: Mesh, floor: Color, bg: Color) {
-        this.floor = floor;
-        
+    public init(container: HTMLElement, subject: Mesh, bg: Color) {
+
         this.scene = new THREE.Scene();
         this.scene.background = bg;
 
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.camera.position.z = 5;
 
-        this.renderer = new THREE.WebGLRenderer();
+        this.renderer = new THREE.WebGLRenderer({antialias: true});
+        this.renderer.shadowMap.enabled = true;
+        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        
 
-        let ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white ambient light
-        this.scene.add( ambientLight );
 
-        let pointLight = new THREE.PointLight(0xa0a0a0);
-        pointLight.position.set(2, 2, 2);
-        this.scene.add(pointLight);
+        let ambientLight = new THREE.AmbientLight(0x404040); // soft white ambient light
+        this.scene.add(ambientLight);
+
+        let sunLight = new THREE.DirectionalLight( 0xffffff, 1, 100 );
+        sunLight.position.set(0, 1, 0);
+        sunLight.castShadow = true;
+        this.scene.add(sunLight);
+
+        //Set up shadow properties for the light
+        // sunLight.shadow.mapSize.width = 512;  // default
+        // sunLight.shadow.mapSize.height = 512; // default
+        // sunLight.shadow.camera.near = 0.5;       // default
+        // sunLight.shadow.camera.far = 500      // default
 
         this.subject = subject;
 
@@ -50,7 +57,7 @@ export class Renderer3Service {
         container.appendChild(this.renderer.domElement);
     }
 
-    public setSubject(obj: Mesh){
+    public setSubject(obj: Mesh) {
         this.subject = obj;
     }
 
@@ -61,10 +68,15 @@ export class Renderer3Service {
         return cube;
     }
 
-    createFloor(){ 
-        let floor = new THREE.Mesh(new THREE.PlaneBufferGeometry(1000,1000), new THREE.MeshBasicMaterial({color: this.floor}));
-        floor.rotation.x = -Math.PI/2;
-        floor.position.y = -33;
+    createFloor() {
+        let floorMaterial = new THREE.ShadowMaterial();
+        floorMaterial.opacity = 0.5;
+        let floor = new THREE.Mesh(
+            new THREE.PlaneBufferGeometry(1000, 1000),
+            floorMaterial
+        );
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.y = -2;
         floor.receiveShadow = true;
         this.scene.add(floor);
     }
