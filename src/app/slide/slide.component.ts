@@ -37,7 +37,7 @@ export class SlideComponent implements OnInit {
         let material = new THREE.MeshLambertMaterial({ color: this.subjectColor });
         let cube = new THREE.Mesh(geometry, material);
         cube.castShadow = true;
-        cube.position.x = 3;
+        // cube.position.x = 3;
         return cube;
     }
 

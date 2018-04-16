@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Scene, PerspectiveCamera, Mesh, Color, WebGLRenderer, Vector3 } from 'three';
+
 import { StatsService } from './stats.service';
 
 @Injectable()
@@ -26,14 +27,14 @@ export class Renderer3Service {
 
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.camera.position.z = 5;
-        this.camera.up = new THREE.Vector3(0,1,0);
-        this.mousePos = {x: window.innerWidth/2, y: window.innerHeight/2}
+        this.camera.up = new THREE.Vector3(0, 1, 0);
+        this.camera.setViewOffset(window.innerWidth, window.innerHeight, -window.innerWidth / 3, 0, window.innerWidth, window.innerHeight)
+        this.mousePos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-
 
         let ambientLight = new THREE.AmbientLight(0x404040); // soft white ambient light
         this.scene.add(ambientLight);
@@ -60,8 +61,12 @@ export class Renderer3Service {
 
         // bind to window resizes
         window.addEventListener('resize', _ => this.onResize());
-        container.addEventListener( 'mousemove', this.onMouseMove.bind(this), false );
-
+        
+        container.addEventListener('mousemove', this.onMouseMove.bind(this), false);
+        container.addEventListener('touchStart', this.onTouchStart.bind(this), false);
+        container.addEventListener('touchEnd', this.onTouchEnd.bind(this), false);
+        container.addEventListener('touchMove', this.onTouchMove.bind(this), false);
+    
         container.appendChild(this.renderer.domElement);
     }
 
@@ -103,24 +108,38 @@ export class Renderer3Service {
         this.renderer.render(this.scene, this.camera);
     }
 
-    animateCamera(){
-        if(this.mousePos.x > window.innerWidth/2 && this.camera.rotation.y < 0.25){
-            this.camera.rotation.y += 0.01;
-        }
-        if(this.mousePos.x < window.innerWidth/2 && this.camera.rotation.y > -0.25){
-            this.camera.rotation.y += -0.01;
-        }
-        if(this.mousePos.y > window.innerHeight/2 && this.camera.rotation.x < 0.07){
-            this.camera.rotation.x += 0.01;
-        }
-        if(this.mousePos.y < window.innerHeight/2 && this.camera.rotation.x > -0.07){
-            this.camera.rotation.x += -0.01;
-        }
+    animateCamera() {
+        // if(this.mousePos.x < window.innerWidth/2 && this.camera.rotation.y < 0.25){
+        //     this.camera.rotation.y += 0.01;
+        // }
+        // if(this.mousePos.x > window.innerWidth/2 && this.camera.rotation.y > -0.25){
+        //     this.camera.rotation.y += -0.01;
+        // }
+        // if(this.mousePos.y > window.innerHeight/2 && this.camera.rotation.x < 0.07){
+        //     this.camera.rotation.x += 0.01;
+        // }
+        // if(this.mousePos.y < window.innerHeight/2 && this.camera.rotation.x > -0.07){
+        //     this.camera.rotation.x += -0.01;
+        // }
+
+        this.camera.position.x += ( this.mousePos.x/window.innerWidth*3 - this.camera.position.x ) * 0.05;
+        this.camera.position.y += ( - this.mousePos.y/window.innerHeight*3 - this.camera.position.y ) * 0.05;
+        this.camera.lookAt( this.subject.position );
+
     }
 
     onResize() {
         const width = window.innerWidth;
         const height = window.innerHeight;
+        if (width < 1024) {
+            this.camera.setViewOffset(window.innerWidth, window.innerHeight, -window.innerWidth / 2, 0, window.innerWidth, window.innerHeight)
+        }
+        if (width < 720) {
+            this.camera.setViewOffset(window.innerWidth, window.innerHeight, window.innerWidth, window.innerHeight, window.innerWidth, window.innerHeight)
+        }
+        if (width >= 1024) {
+            this.camera.setViewOffset(window.innerWidth, window.innerHeight, -window.innerWidth / 3, 0, window.innerWidth, window.innerHeight)
+        }
 
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
@@ -128,8 +147,10 @@ export class Renderer3Service {
         this.renderer.setSize(width, height);
     }
 
+
     onMouseMove(event) {
-        this.mousePos = { x: event.clientX, y: event.clientY};
+        this.mousePos = { x: event.clientX - window.innerWidth/2, y: event.clientY - window.innerHeight/2};
+        console.log(this.mousePos);
     }
 
     onTouchStart(event) {
@@ -140,14 +161,13 @@ export class Renderer3Service {
     }
 
     onTouchEnd(event) {
-        this.mousePos = { x: window.innerWidth/2, y: window.innerHeight/2 };
+        this.mousePos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     }
 
     onTouchMove(event) {
         if (event.touches.length == 1) {
-          event.preventDefault();
-              this.mousePos = {x:event.touches[0].pageX, y:event.touches[0].pageY };
+            event.preventDefault();
+            this.mousePos = { x: event.touches[0].pageX, y: event.touches[0].pageY };
         }
-      }
-
+    }
 }
