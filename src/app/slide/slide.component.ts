@@ -1,8 +1,9 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Scene, PerspectiveCamera, Renderer, Mesh } from 'three';
-import { Renderer3Service } from '../renderer3.service';
-import { GuiService } from '../gui.service';
+import { Scene, PerspectiveCamera, Renderer, Mesh, Vector3 } from 'three';
+import { Renderer3Service } from '../services/renderer3.service';
+import { GuiService } from '../services/gui.service';
 import { environment } from '../../environments/environment';
+import { ObjLoaderService } from '../services/obj-loader.service';
 
 @Component({
   selector: 'app-slide',
@@ -12,33 +13,37 @@ import { environment } from '../../environments/environment';
 export class SlideComponent implements OnInit {
 
     public message = 'hello';
-    public bgColor = '#e0dacd';
-    public subjectColor = '#0099ff';
+    public bgColor = '#131313';
+
 
     constructor(
         private element: ElementRef,
         private _renderer: Renderer3Service,
-        private _gui: GuiService
+        private _gui: GuiService,
+        private _objLoader: ObjLoaderService
     ) { }
 
     ngOnInit() {
-        this._renderer.init(
-            this.element.nativeElement,
-            this.getSubject(),
-            new THREE.Color(this.bgColor)
-        );
+        this.getSubject();
         if(environment['performanceDebug']){
             this.setupGui();
         }
     }
 
     getSubject(){
-        let geometry = new THREE.BoxBufferGeometry(1.5, 1.5, 1.5);
-        let material = new THREE.MeshLambertMaterial({ color: this.subjectColor });
-        let cube = new THREE.Mesh(geometry, material);
-        cube.castShadow = true;
-        // cube.position.x = 3;
-        return cube;
+
+        this._objLoader
+            .getMesh()
+            .subscribe(
+                mesh => {
+                    this._renderer.init(
+                        this.element.nativeElement,
+                        mesh,
+                        new THREE.Color(this.bgColor)
+                    );
+                }
+            );
+        this._objLoader.loadMesh('/assets/3d/', 'Topography')
     }
 
     setupGui(){

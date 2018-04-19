@@ -23,6 +23,8 @@
       ],
       "scripts": [
         "../node_modules/three/build/three.min.js",
+        "../node_modules/three/examples/js/loaders/OBJLoader.js",
+        "../node_modules/three/examples/js/loaders/MTLLoader.js",
         "../node_modules/stats-monitor/build/stats.min.js",
         "../node_modules/dat.gui/build/dat.gui.min.js"
       ],

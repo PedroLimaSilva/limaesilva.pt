@@ -3,9 +3,10 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SlideComponent } from './slide/slide.component';
-import { Renderer3Service } from './renderer3.service';
-import { StatsService } from './stats.service';
-import { GuiService } from './gui.service';
+import { Renderer3Service } from './services/renderer3.service';
+import { StatsService } from './services/stats.service';
+import { GuiService } from './services/gui.service';
+import { ObjLoaderService } from './services/obj-loader.service';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { GuiService } from './gui.service';
   providers: [
       Renderer3Service,
       StatsService,
-      GuiService
+      GuiService,
+      ObjLoaderService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

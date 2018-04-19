@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from '../environments/environment';
-import { StatsService } from './stats.service';
+import { StatsService } from './services/stats.service';
 
 @Component({
     selector: 'app-root',
