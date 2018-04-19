@@ -105,7 +105,7 @@ export class Renderer3Service {
 
     animateCamera() {
         this.camera.position.x += ( (this.mousePos.x/window.innerWidth)*3 - this.camera.position.x ) * 0.05;
-        this.camera.position.y += ( - (this.mousePos.y/window.innerHeight)*3 - this.camera.position.y + 1.5) * 0.05;
+        this.camera.position.y += ( - (this.mousePos.y/window.innerHeight)*1.5 - this.camera.position.y + 2) * 0.05;
         this.camera.lookAt( this.subject.position );
     }
 
