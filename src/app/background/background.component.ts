@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Scene, PerspectiveCamera, Renderer, Mesh, Vector3 } from 'three';
 import { Renderer3Service } from '../services/renderer3.service';
@@ -6,11 +8,11 @@ import { environment } from '../../environments/environment';
 import { ObjLoaderService } from '../services/obj-loader.service';
 
 @Component({
-  selector: 'app-slide',
-  templateUrl: './slide.component.html',
-  styleUrls: ['./slide.component.scss']
+  selector: 'app-background',
+  templateUrl: './background.component.html',
+  styleUrls: ['./background.component.scss']
 })
-export class SlideComponent implements OnInit {
+export class BackgroundComponent implements OnInit {
 
     public message = 'hello';
     public bgColor = '#131313';

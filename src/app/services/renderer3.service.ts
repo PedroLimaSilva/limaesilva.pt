@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Scene, PerspectiveCamera, Mesh, Color, WebGLRenderer, Vector3 } from 'three';
 
 import { StatsService } from './stats.service';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class Renderer3Service {
@@ -92,7 +93,9 @@ export class Renderer3Service {
     animate() {
         window.requestAnimationFrame(_ => this.animate());
 
-        this.stats.update();
+        if(environment['performanceDebug']){
+            this.stats.update();
+        }
         /*
         this.subject.rotation.x += 0.01;
         this.subject.rotation.y += 0.02;
