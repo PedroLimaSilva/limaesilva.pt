@@ -12,6 +12,8 @@ export class Renderer3Service {
     private renderer: WebGLRenderer;
     public subject: Mesh;
 
+    public cameraHeight = 2;
+
     private mousePos: {
         x: number,
         y: number
@@ -77,6 +79,10 @@ export class Renderer3Service {
         this.subject = obj;
     }
 
+    public setcameraHeight(value: number){
+        this.cameraHeight = value;
+    }
+
     createFloor() {
         let floorMaterial = new THREE.ShadowMaterial();
         floorMaterial.opacity = 0.5;
@@ -108,7 +114,7 @@ export class Renderer3Service {
 
     animateCamera() {
         this.camera.position.x += ( (this.mousePos.x/window.innerWidth)*3 - this.camera.position.x ) * 0.05;
-        this.camera.position.y += ( - (this.mousePos.y/window.innerHeight)*1.5 - this.camera.position.y + 2) * 0.05;
+        this.camera.position.y += ( - (this.mousePos.y/window.innerHeight)*1.5 - this.camera.position.y + this.cameraHeight) * 0.05;
         this.camera.lookAt( this.subject.position );
     }
 
