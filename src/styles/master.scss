@@ -1,27 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import './base/grid.scss';
-
-body{
+body {
     margin: 0;
     padding: 0;
     position: relative;
+    color: white;
+    font-family: Roboto;
+    font-weight: lighter;
 }
 
-canvas{
-    position: absolute;
+canvas {
+    position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
+    right: 0;
+    z-index: 0;
 }
 
-#stats{
+#stats {
     position: fixed;
     bottom: 0;
     right: 0;
 }
 
-.dg.ac{
-    .dg.main.a:not(:last-child){
+.dg.ac {
+    .dg.main.a:not(:last-child) {
         display: none;
     }
 }

@@ -7,12 +7,14 @@ import { Renderer3Service } from './services/renderer3.service';
 import { StatsService } from './services/stats.service';
 import { GuiService } from './services/gui.service';
 import { ObjLoaderService } from './services/obj-loader.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BackgroundComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule
