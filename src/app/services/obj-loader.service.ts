@@ -35,9 +35,9 @@ export class ObjLoaderService {
     }
 
 
-    public loadMesh(objPath?: string, objName?: string) {
-        this.textureLoader.setPath('/assets/3d/');
-        let texture = this.textureLoader.load('Topography.mtl', this.onLoadMaterials.bind(this));
+    public loadMesh(objPath: string, objName: string) {
+        this.textureLoader.setPath(objPath);
+        let texture = this.textureLoader.load(objName+'.mtl', this.onLoadMaterials.bind(this));
     }
 
     private onLoadMaterials(materials){

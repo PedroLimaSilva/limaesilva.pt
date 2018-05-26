@@ -43,6 +43,7 @@ export class BackgroundComponent implements OnInit {
                         mesh,
                         new THREE.Color(this.bgColor)
                     );
+                    this._renderer.setcameraHeight(2);
                 }
             );
         this._objLoader.loadMesh('/assets/3d/', 'Topography')
