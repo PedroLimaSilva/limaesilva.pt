@@ -26,7 +26,6 @@ export class Renderer3Service {
     public init(container: HTMLElement, subject: Mesh, bg: Color) {
 
         this.scene = new THREE.Scene();
-        this.scene.background = bg;
 
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.camera.position.z = 5;
@@ -53,9 +52,7 @@ export class Renderer3Service {
         sunLight.castShadow = true;
         this.scene.add(sunLight);
 
-        this.subject = subject;
-
-        this.scene.add(this.subject);
+        this.setScene(subject, bg);
 
         this.createFloor();
 
@@ -71,8 +68,24 @@ export class Renderer3Service {
         container.addEventListener('touchMove', this.onTouchMove.bind(this), false);
     
         container.appendChild(this.renderer.domElement);
+        
+    }
+
+    public setScene(subject: Mesh, bg: Color){
+
+        this.scene.background = bg;
+
+        this.scene.children = this.scene.children.filter(child =>{
+            return !child.userData.subject;
+        })
+
+        this.subject = subject;
+        this.subject.userData['subject'] = true;
+        this.scene.add(this.subject);
 
         window['scene'] = this.scene;
+
+        console.log(this.scene.children)
     }
 
     public setSubject(obj: Mesh) {

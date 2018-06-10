@@ -9,6 +9,8 @@ export class ObjLoaderService {
     loader: THREE.OBJLoader;
     textureLoader: THREE.TextureLoader;
 
+    loadingObj: THREE.Mesh;
+
     currentlyLoaded: BehaviorSubject<THREE.Mesh>;
 
     TARGET_RADIUS = 4;
@@ -25,9 +27,10 @@ export class ObjLoaderService {
 
         cube.geometry.computeBoundingSphere();
         let objRadius = cube.geometry.boundingSphere.radius;
-        console.log(cube, objRadius);
 
-        this.currentlyLoaded = new BehaviorSubject<THREE.Mesh>(cube);
+        this.loadingObj = cube;
+
+        this.currentlyLoaded = new BehaviorSubject<THREE.Mesh>(this.loadingObj);
     }
 
     public getMesh(): BehaviorSubject<THREE.Mesh>{

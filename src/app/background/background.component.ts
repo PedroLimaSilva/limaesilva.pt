@@ -23,9 +23,12 @@ export class BackgroundComponent implements OnInit {
         private _renderer: Renderer3Service,
         private _gui: GuiService,
         private _objLoader: ObjLoaderService
-    ) { }
+    ) {
+
+     }
 
     ngOnInit() {
+        this._renderer.init(this.element.nativeElement, this._objLoader.loadingObj, new THREE.Color(this.bgColor));
         this.getSubject();
         if(environment['performanceDebug']){
             this.setupGui();
@@ -33,13 +36,12 @@ export class BackgroundComponent implements OnInit {
     }
 
     getSubject(){
-
+        
         this._objLoader
             .getMesh()
             .subscribe(
                 mesh => {
-                    this._renderer.init(
-                        this.element.nativeElement,
+                    this._renderer.setScene(
                         mesh,
                         new THREE.Color(this.bgColor)
                     );
