@@ -6,16 +6,16 @@ export class StatsService {
     stats: Stats;
 
     constructor() {
-        this.stats = new Stats();
+        //this.stats = new Stats();
      }
 
     public addStats() {
-        document.body.appendChild(this.stats.domElement);
+        //document.body.appendChild(this.stats.domElement);
     }
 
 
     public update() {
-        this.stats.update();
+        //this.stats.update();
     }
 
 }

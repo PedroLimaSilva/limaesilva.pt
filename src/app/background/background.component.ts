@@ -2,7 +2,7 @@
 
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Scene, PerspectiveCamera, Renderer, Mesh, Vector3 } from 'three';
-import { Renderer3Service } from '../services/renderer3.service';
+//import { Renderer3Service } from '../services/renderer3.service';
 import { GuiService } from '../services/gui.service';
 import { environment } from '../../environments/environment';
 import { ObjLoaderService } from '../services/obj-loader.service';
@@ -20,21 +20,23 @@ export class BackgroundComponent implements OnInit {
 
     constructor(
         private element: ElementRef,
-        private _renderer: Renderer3Service,
+        //private _renderer: Renderer3Service,
         private _gui: GuiService,
-        private _objLoader: ObjLoaderService
+        //private _objLoader: ObjLoaderService
     ) {
 
      }
 
     ngOnInit() {
+        /*
         this._renderer.init(this.element.nativeElement, this._objLoader.loadingObj, new THREE.Color(this.bgColor));
         this.getSubject();
         if(environment['performanceDebug']){
             this.setupGui();
         }
+        */
     }
-
+/*
     getSubject(){
         
         this._objLoader
@@ -50,7 +52,7 @@ export class BackgroundComponent implements OnInit {
             );
         this._objLoader.loadMesh('/assets/3d/', 'Topography')
     }
-
+*/
     setupGui(){
         this._gui.clearItems();
         this._gui.addElement(this, 'message');
