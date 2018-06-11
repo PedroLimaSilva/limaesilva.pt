@@ -1,4 +1,4 @@
-import { THREE } from "three";
+import { THREE } from "../scripts/three.r74.min";
 
 export class Renderer3Service {
 

@@ -7,6 +7,8 @@ import { GuiService } from '../services/gui.service';
 import { environment } from '../../environments/environment';
 import { ObjLoaderService } from '../services/obj-loader.service';
 
+import { ParticleSystem } from '../3d/particles/particles';
+
 @Component({
   selector: 'app-background',
   templateUrl: './background.component.html',
@@ -28,8 +30,15 @@ export class BackgroundComponent implements OnInit {
      }
 
     ngOnInit() {
-        this._renderer.init(this.element.nativeElement, this._objLoader.loadingObj, new THREE.Color(this.bgColor));
-        this.getSubject();
+        let particles = true;
+        if(particles) {
+            let stars = new ParticleSystem().system;
+            this._renderer.init(this.element.nativeElement, stars , new THREE.Color(this.bgColor));
+        }
+        else{
+            this._renderer.init(this.element.nativeElement, this._objLoader.loadingObj, new THREE.Color(this.bgColor));
+            this.getSubject();
+        }
         if(environment['performanceDebug']){
             this.setupGui();
         }

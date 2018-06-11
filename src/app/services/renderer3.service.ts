@@ -10,7 +10,7 @@ export class Renderer3Service {
     public scene: Scene;
     public camera: PerspectiveCamera;
     private renderer: WebGLRenderer;
-    public subject: Mesh;
+    public subject:  Mesh | THREE.PointCloud;
 
     public cameraHeight = 2;
 
@@ -23,7 +23,7 @@ export class Renderer3Service {
         private stats: StatsService
     ) { }
 
-    public init(container: HTMLElement, subject: Mesh, bg: Color) {
+    public init(container: HTMLElement, subject:  Mesh | THREE.PointCloud, bg: Color) {
 
         this.scene = new THREE.Scene();
 
@@ -71,7 +71,7 @@ export class Renderer3Service {
         
     }
 
-    public setScene(subject: Mesh, bg: Color){
+    public setScene(subject: Mesh | THREE.PointCloud, bg: Color){
 
         this.scene.background = bg;
 
