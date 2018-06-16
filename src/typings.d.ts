@@ -26,3 +26,5 @@ declare class Stats {
 	
 	update(): void;
 }
+
+declare var particlesJS: any;
