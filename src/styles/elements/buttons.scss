@@ -3,7 +3,7 @@
     border: 3px solid white;
     padding: 1.4rem 3rem 0.9rem;
     position: relative;
-    transform: color 0.15s ease;
+    transition: color 0.15s ease;
     overflow: hidden;
     cursor: pointer;
     &::after{
