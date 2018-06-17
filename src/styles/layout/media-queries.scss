@@ -3,3 +3,39 @@ $mq_tl_min: 831px;
 $mq_tp_max: 830px;
 $mq_tp_min: 491px;
 $mq_p_max: 490px;
+
+@mixin for-size($range) {
+    $phone-upper-boundary            : $mq_p_max;
+    $tablet-portrait-upper-boundary  : $mq_tp_max;
+    $tablet-landscape-upper-boundary : 1044px;
+    $desktop-upper-boundary          : 1800px;
+
+    @if $range == phone-only {
+        :host-context(.nav-open){
+            @media (max-width: #{$phone-upper-boundary - 1 + $nav-open-width} ) { @content; }
+        }
+        @media (max-width: #{$phone-upper-boundary - 1}) { @content; }
+    }
+
+    @else if $range == tablet-portrait-down {
+        :host-context(.nav-open){
+            @media (max-width: $tablet-portrait-upper-boundary - $nav-open-width) { @content; }
+        }
+        @media (max-width: $tablet-portrait-upper-boundary) { @content; }
+    }
+
+    /*
+
+    @else if $range == tablet-landscape-up {
+        @media (min-width: $tablet-portrait-upper-boundary) { @content; }
+    }
+
+    @else if $range == desktop-up {
+        @media (min-width: $tablet-landscape-upper-boundary) { @content; }
+    }
+
+    @else if $range == big-desktop-up {
+        @media (min-width: $desktop-upper-boundary) { @content; }
+    }
+    */
+}

@@ -10,6 +10,7 @@ import { AppBarComponent } from './components/app-bar/app-bar.component';
 import { AboutComponent } from './pages/about/about.component';
 
 import {NavbarService} from './components/navbar/navbar.service';
+import { ResumeComponent } from './pages/resume/resume.component';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import {NavbarService} from './components/navbar/navbar.service';
         NavbarComponent,
         ProfilePicComponent,
         AppBarComponent,
-        AboutComponent
+        AboutComponent,
+        ResumeComponent
     ],
     providers: [NavbarService],
     bootstrap: [AppComponent],

@@ -22,11 +22,6 @@ h1,h2,h3,h4,h5,h6{
     margin-bottom: 0.5em;
 }
 
-ul{
-    list-style: none;
-    padding: 0;
-}
-
 button{
     appearance: none;
     font-family: 'Tajawal', sans-serif;
@@ -35,6 +30,10 @@ button{
     color: white;
     font-size: 1em;
     padding: 0;
+}
+
+a{
+    color: inherit !important;
 }
 
 canvas {

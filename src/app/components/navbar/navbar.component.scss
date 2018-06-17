@@ -1,5 +1,6 @@
 @import '../../../styles/base/variables';
 
+
 nav{
     height: 100vh;
     width: 0;
@@ -28,6 +29,7 @@ nav{
         font-size: 1.8rem;
         width: 100%;
         padding: 50px;
+        list-style: none;
         li{
             margin: 10px 0 20px;
             span{
