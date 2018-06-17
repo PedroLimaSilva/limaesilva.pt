@@ -1,5 +1,54 @@
+$grid-max-width: 1044px;
+$grid-gutter: 27px;
+$grid-columns: 12;
+
 .container,
 .main-container{
-    max-width: 1024px;
+    max-width: 1044px;
     margin: 0 auto;
+}
+
+.grid{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+[class|="col"]{
+    padding: 0 $grid-gutter / 2;
+}
+.col-1{
+    width: 1*100%/$grid-columns;
+}
+.col-2{
+    width: 2*100%/$grid-columns;
+}
+.col-3{
+    width: 3*100%/$grid-columns;
+}
+.col-4{
+    width: 4*100%/$grid-columns;
+}
+.col-5{
+    width: 5*100%/$grid-columns;
+}
+.col-6{
+    width: 6*100%/$grid-columns;
+}
+.col-7{
+    width: 7*100%/$grid-columns;
+}
+.col-8{
+    width: 8*100%/$grid-columns;
+}
+.col-9{
+    width: 9*100%/$grid-columns;
+}
+.col-10{
+    width: 10*100%/$grid-columns;
+}
+.col-11{
+    width: 11*100%/$grid-columns;
+}
+.col-12{
+    width: 12*100%/$grid-columns;
 }

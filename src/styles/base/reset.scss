@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: white;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+button{
+    appearance: none;
+    font-family: 'Tajawal', sans-serif;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1em;
+    padding: 0;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+::selection{
+    background: white;
+    color: #2c2c2c;
+}
+
+:focus{
+    outline: 3px dashed white;
+}

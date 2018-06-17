@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.profile{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .content{
+        flex: 1;
+    }
+}
+
+.img-col{
+    width: 33%;
+}
+
+h1{
+    margin: 0;
+}
+.subtitle{
+    margin: 0;
+    margin-bottom: 2em;
+    font-size: 1.8rem;
+}
+
+.button{
+    margin: 0 20px;
+}

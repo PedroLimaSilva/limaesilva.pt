@@ -1,0 +1,29 @@
+.button{
+    background: transparent;
+    border: 3px solid white;
+    padding: 1.4rem 3rem;
+    position: relative;
+    transform: color 0.15s ease;
+    overflow: hidden;
+    cursor: pointer;
+    &::after{
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        background-color: white;
+        transform-origin: bottom left;
+        transform: rotate(-90deg);
+        transition: transform 0.15s ease;
+        z-index: -1;
+    }
+    &:hover{
+        color: #2c2c2c;
+        &::after{
+            transform: rotate(0);
+        }
+    }
+}

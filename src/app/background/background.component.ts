@@ -9,7 +9,7 @@ import { particlesParams } from './settings';
         id: 'particles-bg'
     }
 })
-export class BackgroundComponent implements AfterViewInit {
+export class BackgroundComponent implements OnInit {
 
     public message = 'hello';
     public bgColor = '#2c2c2c';
@@ -19,7 +19,7 @@ export class BackgroundComponent implements AfterViewInit {
     ) {
     }
 
-    ngAfterViewInit() {
+    ngOnInit() {
         particlesJS(this.element.nativeElement.id, particlesParams);
         window.document.body.style.background = this.bgColor;
     }

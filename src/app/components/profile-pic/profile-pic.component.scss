@@ -1,0 +1,36 @@
+:host{
+    display: block;
+    padding: 35px;
+    position: relative;
+}
+
+img{
+    filter: grayscale(1);
+    width: 100%;
+    display: block;
+}
+
+.corner{
+    border: 1px solid white;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    &.top{
+        border-top:0;
+        top: 0;
+    }
+    &.bottom{
+        border-bottom:0;
+        bottom: 0;
+        top: unset;
+    }
+    &.left{
+        border-left:0;
+        left: 0;
+    }
+    &.right{
+        border-right:0;
+        right: 0;
+        left: unset;
+    }
+}

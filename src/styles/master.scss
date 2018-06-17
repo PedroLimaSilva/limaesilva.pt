@@ -1,32 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './base/grid.scss';
-body {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    color: white;
-    font-family: Roboto;
-    font-weight: lighter;
-}
+@import url('https://fonts.googleapis.com/css?family=Tajawal:200,400,900');
 
-canvas {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 0;
-}
+@import './base/reset';
+@import './base/grid';
 
-#stats {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
+@import './elements/buttons';
 
-.dg.ac {
-    .dg.main.a:not(:last-child) {
-        display: none;
-    }
-}

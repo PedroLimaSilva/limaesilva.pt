@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { environment } from '../environments/environment';
-import { StatsService } from './services/stats.service';
+
 
 @Component({
     selector: 'app-root',
@@ -10,11 +9,6 @@ import { StatsService } from './services/stats.service';
 export class AppComponent {
     title = 'app';
 
-    constructor(
-        private _stats: StatsService
-    ){
-        if(environment['performanceDebug']){
-            _stats.addStats();
-        }
+    constructor() {
     }
 }
