@@ -1,6 +1,6 @@
-<app-bar></app-bar>
+<app-bar (theme)="onThemeToggle()"></app-bar>
 <navbar></navbar>
 <main>
     <about></about>
 </main>
-<app-background></app-background>
+<app-background [theme]="currentTheme"></app-background>

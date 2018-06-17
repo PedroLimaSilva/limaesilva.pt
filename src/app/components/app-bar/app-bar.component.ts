@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { NavbarService } from '../navbar/navbar.service';
+import { BackgroundComponent } from '../../background/background.component';
 
 @Component({
     selector: 'app-bar',
@@ -10,8 +11,10 @@ export class AppBarComponent implements OnInit, OnDestroy {
 
     navOpen: boolean;
 
+    @Output() theme = new EventEmitter<string>();
+
     constructor(
-        private navService: NavbarService
+        private navService: NavbarService,
     ) {
         this.navService._isOpen.subscribe(
             state => {
@@ -23,12 +26,16 @@ export class AppBarComponent implements OnInit, OnDestroy {
     ngOnInit() {
     }
 
-    onClickToggle(){
+    onClickNavToggle(){
         if(this.navOpen){
             this.navService.close();
         }else{
             this.navService.open();
         }
+    }
+
+    onClickThemeToggle(){
+        this.theme.emit()
     }
 
     ngOnDestroy(){

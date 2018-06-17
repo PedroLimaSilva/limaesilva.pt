@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { particlesParams } from './settings';
+import { Component, Input, OnInit, ElementRef, OnChanges } from '@angular/core';
+import { particlesDarkTheme, particlesLightTheme } from './settings';
 
 @Component({
     selector: 'app-background',
@@ -9,10 +9,9 @@ import { particlesParams } from './settings';
         id: 'particles-bg'
     }
 })
-export class BackgroundComponent implements OnInit {
+export class BackgroundComponent implements OnInit, OnChanges {
 
-    public message = 'hello';
-    public bgColor = '#2c2c2c';
+    @Input() theme:string;
 
     constructor(
         private element: ElementRef,
@@ -20,7 +19,18 @@ export class BackgroundComponent implements OnInit {
     }
 
     ngOnInit() {
-        particlesJS(this.element.nativeElement.id, particlesParams);
-        window.document.body.style.background = this.bgColor;
+        this.setParticles();
+    }
+
+    ngOnChanges(){
+        this.setParticles();
+    }
+    
+    setParticles(){
+        if(this.theme === 'dark'){
+            particlesJS(this.element.nativeElement.id, particlesDarkTheme);
+        } else if(this.theme === 'light'){
+            particlesJS(this.element.nativeElement.id, particlesLightTheme);
+        }
     }
 }
