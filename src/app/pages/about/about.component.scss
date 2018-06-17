@@ -1,3 +1,6 @@
+@import '../../../styles/layout/media-queries';
+@import '../../../styles/base/variables';
+
 .container{
     display: flex;
     height: 100%;
@@ -16,6 +19,7 @@
 
 .img-col{
     width: 33%;
+    transition: width 0.3s 0.3s ease;
 }
 
 h1{
@@ -28,5 +32,53 @@ h1{
 }
 
 .button{
-    margin: 0 20px;
+    margin: 0 20px 10px;;
 }
+
+// Tablet Portrait
+@media (max-width: $mq_tp_max){
+    .profile{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .img-col{
+        width: 50%;
+    }
+}
+
+// Tablet Portrait + navbar
+:host-context(.nav-open){
+    @media (max-width: $mq_tp_max + $nav-open-width){
+        .profile{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .img-col{
+            width: 50%;
+        }
+    }
+}
+
+// Phone Portrait
+@media (max-width: $mq_p_max){
+    .img-col{
+        width: 100%;
+    }
+    .button{
+        width: 100%;
+    }
+}
+
+// Phone Portrait + navbar
+:host-context(.nav-open){
+    @media (max-width: $mq_p_max + $nav-open-width){
+        .img-col{
+            width: 100%;
+        }
+        .button{
+            width: 100%;
+        }
+    }
+}
+
+
