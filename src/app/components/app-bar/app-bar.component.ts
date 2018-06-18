@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { NavbarService } from '../navbar/navbar.service';
 import { BackgroundComponent } from '../../background/background.component';
 
@@ -10,6 +10,7 @@ import { BackgroundComponent } from '../../background/background.component';
 export class AppBarComponent implements OnInit, OnDestroy {
 
     navOpen: boolean;
+    @Input() currentTheme: string;
 
     @Output() theme = new EventEmitter<string>();
 
@@ -24,6 +25,22 @@ export class AppBarComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+    }
+
+    get themeIcon(){
+        if(this.currentTheme === 'dark'){
+            return '#lnr-sun';
+        }else{
+            return '#lnr-moon';
+        }
+    }
+
+    get navIcon(){
+        if(this.navOpen){
+            return '#lnr-cross';
+        } else {
+            return '#lnr-menu';
+        }
     }
 
     onClickNavToggle(){

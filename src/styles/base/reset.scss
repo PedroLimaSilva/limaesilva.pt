@@ -33,7 +33,7 @@ button{
 }
 
 a{
-    color: inherit !important;
+    color: inherit;
 }
 
 canvas {
@@ -51,6 +51,6 @@ canvas {
     color: #2c2c2c;
 }
 
-:focus{
-    outline: 3px dashed white;
-}
+// :focus{
+//     outline: 3px dashed white;
+// }

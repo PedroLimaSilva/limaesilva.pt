@@ -1,6 +1,8 @@
 <div class="app-bar__left">
     <div class="toggle" (click)="onClickNavToggle()" tabindex="0">
-        <svg class="lnr lnr-menu"><use xlink:href="#lnr-menu"></use></svg>
+        <svg class="lnr" [ngClass]="{'lnr-cross': navOpen, 'lnr-menu': !navOpen}">
+            <use [attr.xlink:href]="navIcon"></use>
+        </svg>
     </div>
     <div class="signature-container">
         <img class="signature" src="./assets/img/SignatureTransparent.gif">
@@ -8,6 +10,8 @@
 </div>
 <div class="app-bar__right">
     <div class="toggle" (click)="onClickThemeToggle()" tabindex="0">
-        <svg class="lnr lnr-sun"><use xlink:href="#lnr-sun"></use></svg>
+        <svg class="lnr" [ngClass]="{'lnr-sun': currentTheme==='dark', 'lnr-moon': currentTheme==='light'}">
+            <use [attr.xlink:href]="themeIcon"></use>
+        </svg>
     </div>
 </div>

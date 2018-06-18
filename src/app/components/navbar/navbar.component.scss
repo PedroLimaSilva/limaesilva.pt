@@ -32,11 +32,12 @@ nav{
         list-style: none;
         li{
             margin: 10px 0 20px;
-            span{
+            > *{
                 cursor: pointer;
                 position: relative;
                 letter-spacing: 0; 
                 transition: letter-spacing 0.4s ease;
+                text-decoration: none;
                 &::after{
                     display: block;
                     position: absolute;
@@ -51,6 +52,11 @@ nav{
                 }
                 &:hover{
                     letter-spacing: 0.3rem; 
+                    &::after{
+                        transform: scale(1.1);
+                    }
+                }
+                &.active{
                     &::after{
                         transform: scale(1.1);
                     }

@@ -1,11 +1,11 @@
 <nav [ngClass]="{'open': isOpen}">
   <div></div>
   <ul class="navigation">
-    <li><span>About</span></li>
-    <li><span>Resumè</span></li>
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <li><a routerLink="/resume" routerLinkActive="active">Resume</a></li>
     <li class="disabled">Blog</li>
-    <li><span>Projects</span></li>
-    <li><span>Contacts</span></li>
+    <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contact Me</a></li>
   </ul>
   <div><!--PT | EN--></div>
 </nav>
