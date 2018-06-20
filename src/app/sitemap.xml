@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
+    xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    <url>
+        <loc>http://limaesilva.pt</loc>
+        <lastmod>2018-06-19T23:33:17+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://limaesilva.pt/about</loc>
+        <lastmod>2018-06-19T23:33:17+01:00</lastmod>
+        <image:image>
+            <image:loc>http://limaesilva.pt/assets/img/profile.gif</image:loc>
+            <image:caption>Profile picture</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>http://limaesilva.pt/resume</loc>
+        <lastmod>2018-06-19T23:33:17+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://limaesilva.pt/projects</loc>
+        <lastmod>2018-06-19T23:33:17+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://limaesilva.pt/contact</loc>
+        <lastmod>2018-06-19T23:33:17+01:00</lastmod>
+    </url>
+</urlset>
