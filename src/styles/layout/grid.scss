@@ -58,3 +58,44 @@ $grid-columns: 12;
     width: 12*100%/$grid-columns;
 }
 
+@include for-size(tablet-portrait-down){
+    [class|="col"]{
+        width: 12*100%/$grid-columns;
+    }
+    .col-tp-1{
+        width: 1*100%/$grid-columns;
+    }
+    .col-tp-2{
+        width: 2*100%/$grid-columns;
+    }
+    .col-tp-3{
+        width: 3*100%/$grid-columns;
+    }
+    .col-tp-4{
+        width: 4*100%/$grid-columns;
+    }
+    .col-tp-5{
+        width: 5*100%/$grid-columns;
+    }
+    .col-tp-6{
+        width: 6*100%/$grid-columns;
+    }
+    .col-tp-7{
+        width: 7*100%/$grid-columns;
+    }
+    .col-tp-8{
+        width: 8*100%/$grid-columns;
+    }
+    .col-tp-9{
+        width: 9*100%/$grid-columns;
+    }
+    .col-tp-10{
+        width: 10*100%/$grid-columns;
+    }
+    .col-tp-11{
+        width: 11*100%/$grid-columns;
+    }
+    .col-tp-12{
+        width: 12*100%/$grid-columns;
+    }
+}

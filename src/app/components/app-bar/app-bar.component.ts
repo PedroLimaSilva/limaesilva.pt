@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, HostListener, HostBinding } from '@angular/core';
 import { NavbarService } from '../navbar/navbar.service';
 import { BackgroundComponent } from '../../background/background.component';
 
@@ -11,6 +11,10 @@ export class AppBarComponent implements OnInit, OnDestroy {
 
     navOpen: boolean;
     @Input() currentTheme: string;
+    @HostBinding('class.isScrolled')
+    @Input() isScrolled: boolean;
+
+
 
     @Output() theme = new EventEmitter<string>();
 
@@ -27,35 +31,35 @@ export class AppBarComponent implements OnInit, OnDestroy {
     ngOnInit() {
     }
 
-    get themeIcon(){
-        if(this.currentTheme === 'dark'){
+    get themeIcon() {
+        if (this.currentTheme === 'dark') {
             return '#lnr-sun';
-        }else{
+        } else {
             return '#lnr-moon';
         }
     }
 
-    get navIcon(){
-        if(this.navOpen){
+    get navIcon() {
+        if (this.navOpen) {
             return '#lnr-cross';
         } else {
             return '#lnr-menu';
         }
     }
 
-    onClickNavToggle(){
-        if(this.navOpen){
+    onClickNavToggle() {
+        if (this.navOpen) {
             this.navService.close();
-        }else{
+        } else {
             this.navService.open();
         }
     }
 
-    onClickThemeToggle(){
+    onClickThemeToggle() {
         this.theme.emit()
     }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
         this.navService._isOpen.unsubscribe();
     }
 }

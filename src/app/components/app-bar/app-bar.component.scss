@@ -11,6 +11,10 @@
     width: 100%;
     z-index: 10;
     padding: 0 10px;
+    transition: background-color 0.7s ease;
+    &.isScrolled{
+        background-color: transparentize($color: #000000, $amount: 0.85);
+    }
 }
 
 .app-bar__left,
