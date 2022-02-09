@@ -25,7 +25,7 @@
     "core-js": "^2.4.1",
     "dat.gui": "^0.7.1",
     "particles.js": "^2.0.0",
-    "mout": "0.11",
+    "mout": "1.2",
     "rxjs": "^5.5.2",
     "stats-monitor": "^1.0.0",
     "three": "^0.91.0",
